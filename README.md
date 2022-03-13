@@ -7,4 +7,35 @@ Simple voice assistant created using Python and MySQL
 * [Setup](#setup)
 
 ## General Info
-https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio
+We have created a voice assistant Oreo which can be personalized slightly. One can sign in to a previous account or create a new account just by using their voice and nothing else. Once signed in, Oreo will load all of your personalized settings and then you can have it anywhere you go.
+
+## Technologies
+Languages used in this project are:
+1. Python: Python has been the main language of this project as it makes Oreo work. From using microphone, to understanding and then replying are done by using python.
+2. SQL: SQL is the database language we are using for saving all of the user's settings such as login information, personalized settings and etc.
+
+## Setup
+To start with the setup of Oreo, we will first have to create ensure if python is installed.
+In IDLE:
+```
+>>>python --version
+```
+Once python is installed, check for pip:
+```
+>>>pip --version
+```
+After verification is done, it is highly recommended to use a Virtual Environment for installation of modules. To do that:
+```
+pip install virtualenv
+virtualenv venv
+venv\scripts\activate
+```
+This will create and activate our Virtual Environment. First git clone this repository.<br>
+Now we will have to pip install all of the required modules.
+```
+pip install requirements.txt
+```
+We will also need another module called PyAudio and since a lot of devices have issues installing it, there is an easier way. Visit this website:
+https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio.<br>
+Here use the python version and the architecture version to download the specified wheel file. Download it in the folder of your project and then pip install <filename>.<br>
+After installing, just run the oreo.py file in the terminal and you are good to go😉
