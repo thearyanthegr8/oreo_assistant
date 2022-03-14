@@ -11,7 +11,11 @@ We have created a voice assistant named 'Oreo' which can be personalized slightl
 
 ## Technologies
 Languages used in this project are:
-1. Python: Python has been the main language of this project as it makes Oreo work. From using microphone, to understanding and then replying are done by using python. We have used different modules in order to make Oreo work. We used one module of 'pywhatkit' (pywhatkit.playonyt()) to play youtube videos, music etc. We used one text-to-speech module 'pyttsx3'
+1. Python: Python has been the main language of this project as it makes Oreo work. From using microphone, to understanding and then replying are done by using python. We have used different modules in order to make Oreo work. 
+    -We used one module of 'pywhatkit' (pywhatkit.playonyt()) to play youtube videos, music etc. 
+    -We used one text-to-speech module 'pyttsx3'. In order to open notepad we used the module subprocess. 
+    -We use the speech recognition module for the system to interpret the user input via microphone
+    
 2. SQL: SQL is the database language we are using for saving all of the user's settings such as login information, personalized settings and etc.
 
 ## Setup
