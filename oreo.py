@@ -9,26 +9,77 @@ import pywhatkit
 import random
 import wikipedia
 import mysql.connector
+from mysql.connector import Error
 
-mydb = mysql.connector.connect(
-    host = "localhost",
-    user = "root",
-    password = "Mysql",
+def create_server_connection(host_name, user_name, user_password):
+    connection = None
+    try:
+        connection = mysql.connector.connect(
+            host = host_name,
+            user = user_name,
+            passwd = user_password
+        )
+        print("MySQL Database connection successful")
+    except Error as err:
+        print(f"Error: '{err}'")
+    return connection
+
+#Put our MySQL Terminal Password
+pw = "aryan0309"
+
+#Database Name
+db = "oreo"
+connection = create_server_connection("localhost", "root", pw)
+
+#Create Oreo DB
+def create_database(connection, query):
+    cursor = connection.cursor()
+    try: 
+        cursor.execute(query)
+        print("Database created successfully")
+    except Error as err:
+        print(f"Error: '{err}'")
+
+create_database_query = "Create database if not exists oreo"
+create_database(connection, create_database_query)
+
+def create_db_connection(host_name, user_name, user_password, db_name):
+    connection = None
+    try:
+        connection = mysql.connector.connect(
+            host = host_name,
+            user = user_name,
+            passwd = user_password,
+            database = db_name
+        )
+        print("MySQL database connection successfull")
+    except Error as err:
+        print(f"Error: '{err}'")
+    return connection
+
+def execute_query(connection, query):
+    cursor = connection.cursor()
+    try:
+        cursor.execute(query)
+        connection.commit()
+        print("Query was Successfull")
+    except Error as err:
+        print(f"Error: '{err}'")
+
+create_user_table = """
+create table if not exists users(
+    username varchar(255) not null,
+    password varchar(255) not null,
+    name varchar(255) not null,
+    age int not null,
+    bot_name varchar(255)
 )
+"""
 
-mycursor = mydb.cursor()
-
-mycursor.execute("CREATE DATABASE IF NOT EXISTS OREO")
-mycursor.execute("SHOW DATABASES")
-
-for x in mycursor:
-    print(x)
-
-print(mydb)
-
-def authentication_login(username, password):
-    pass
-
+#Connect to the Database
+connection = create_db_connection("localhost", "root", pw, db)
+execute_query(connection, create_user_table)
+    
 
 def speak(text):
     engine = pyttsx3.init()
@@ -57,10 +108,13 @@ WAKE = "Oreo"
 
 
 while True:
+    print("Waiting for wake command")
     text = get_audio()
+
 
     if text.count(WAKE) > 0:
         speak("I am ready")
+        print("I am ready")
         text = get_audio()
 
         GREETINGS_STRS = ["how are you", "whats up", "howdy"]
