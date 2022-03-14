@@ -8,6 +8,27 @@ import subprocess
 import pywhatkit
 import random
 import wikipedia
+import mysql.connector
+
+mydb = mysql.connector.connect(
+    host = "localhost",
+    user = "root",
+    password = "Mysql",
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("CREATE DATABASE IF NOT EXISTS OREO")
+mycursor.execute("SHOW DATABASES")
+
+for x in mycursor:
+    print(x)
+
+print(mydb)
+
+def authentication_login(username, password):
+    pass
+
 
 def speak(text):
     engine = pyttsx3.init()
