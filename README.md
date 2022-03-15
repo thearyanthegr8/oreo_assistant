@@ -30,8 +30,8 @@ Once python is installed, check for pip:
 ```
 After verification is done, it is highly recommended to use a Virtual Environment for installation of modules. To do that:
 ```
-pip install virtualenv
-virtualenv venv
+python -m pip install virtualenv
+python -m virtualenv venv
 venv\scripts\activate
 ```
 This will create and activate our Virtual Environment. First git clone this repository.<br>
