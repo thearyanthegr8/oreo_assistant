@@ -41,5 +41,8 @@ pip install requirements.txt
 ```
 We will also need another module called PyAudio and since a lot of devices have issues installing it, there is an easier way. Visit this website:
 https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio.<br>
-Here use the python version and the architecture version to download the specified wheel file. Download it in the folder of your project and then pip install <filename>.<br>
+Here use the python version and the architecture version to download the specified wheel file. Download it in the folder of your project and then 
+```
+pip install <filename>
+```
 After installing, just run the oreo.py file in the terminal and you are good to go😉
