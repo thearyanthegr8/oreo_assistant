@@ -140,22 +140,20 @@ def main_project():
     print("Who are you?")
     speak("Who are you?")
     username_input = get_audio()
-    print(username_input.lower())
+    print("User: ", username_input.lower())
     username = (f"'{username_input.lower()}'")
 
     connection = create_db_connection("localhost", "root", pw, db)
     select_usernames_passwords = (f"select * from users where name = {username}")
     results = read_query(connection, select_usernames_passwords)
-    print(results)
 
     if (username_input.lower() == results[0][1]):
         print(f"Hello {username}, what is your password?")
         speak(f"Hello {username}, what is your password?")
 
         password_input = get_audio()
-        print(password_input)
         password = remove_space(password_input).lower()
-        print(password)
+        print("User: ", password)
 
         if password == results[0][0]:
             while True:
