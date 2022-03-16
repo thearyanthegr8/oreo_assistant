@@ -25,7 +25,7 @@ def create_server_connection(host_name, user_name, user_password):
     return connection
 
 #Put our MySQL Terminal Password
-pw = "aryan0309"
+pw = "password"
 
 #Database Name
 db = "oreo"
